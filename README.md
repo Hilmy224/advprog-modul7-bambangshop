@@ -61,12 +61,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
 ## Mandatory Checklists (Subscriber)
 -   [ ] Clone https://gitlab.com/ichlaffterlalu/bambangshop-receiver to a new repository.
 -   **STAGE 1: Implement models and repositories**
-    -   [ ] Commit: `Create Notification model struct.`
-    -   [ ] Commit: `Create SubscriberRequest model struct.`
-    -   [ ] Commit: `Create Notification database and Notification repository struct skeleton.`
-    -   [ ] Commit: `Implement add function in Notification repository.`
-    -   [ ] Commit: `Implement list_all_as_string function in Notification repository.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
+    -   [x] Commit: `Create Notification model struct.`
+    -   [x] Commit: `Create SubscriberRequest model struct.`
+    -   [x] Commit: `Create Notification database and Notification repository struct skeleton.`
+    -   [x] Commit: `Implement add function in Notification repository.`
+    -   [x] Commit: `Implement list_all_as_string function in Notification repository.`
+    -   [x] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
     -   [ ] Commit: `Create Notification service struct skeleton.`
     -   [ ] Commit: `Implement subscribe function in Notification service.`
@@ -85,5 +85,9 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1.In this tutorial, we used `RwLock<>` to synchronise the use of `Vec` of `Notifications`. Explain why it is necessary for this case, and explain why we do not use `Mutex<>` instead?
++ `RwLock<>` was chosen due to its ability to allow multiple readers simultaneously. This is essential for scenarios where multiple threads may need to access the notifications list for reading purposes. `RwLock<>` also provides exclusive write access, ensuring data integrity during write operations such as adding or removing notifications. `Mutex<>`, on the other hand, restricts access to only one thread at a time, potentially causing performance bottlenecks and reduced concurrency. Therefore, `RwLock<>` is preferred over `Mutex<>` to optimize concurrency and performance while ensuring data consistency.
 
+2.In this tutorial, we used `lazy_static` external library to define `Vec` and `DashMap` as a `“static”` variable. Compared to Java where we can mutate the content of a `static` variable via a `static` function, why did not Rust allow us to do so?
++ Unlike Java, Rust doesn't allow direct mutation of static variables to prioritize safety and memory integrity. This prevents potential issues like data races and memory corruption in concurrent scenarios. Instead, Rust encourages the use of synchronization primitives like Mutex or RwLock for managing shared mutable state safely.
 #### Reflection Subscriber-2
