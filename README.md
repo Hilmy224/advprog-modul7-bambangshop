@@ -68,16 +68,16 @@ You can install Postman via this website: https://www.postman.com/downloads/
     -   [x] Commit: `Implement list_all_as_string function in Notification repository.`
     -   [x] Write answers of your learning module's "Reflection Subscriber-1" questions in this README.
 -   **STAGE 3: Implement services and controllers**
-    -   [ ] Commit: `Create Notification service struct skeleton.`
-    -   [ ] Commit: `Implement subscribe function in Notification service.`
-    -   [ ] Commit: `Implement subscribe function in Notification controller.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification service.`
-    -   [ ] Commit: `Implement unsubscribe function in Notification controller.`
-    -   [ ] Commit: `Implement receive_notification function in Notification service.`
-    -   [ ] Commit: `Implement receive function in Notification controller.`
-    -   [ ] Commit: `Implement list_messages function in Notification service.`
-    -   [ ] Commit: `Implement list function in Notification controller.`
-    -   [ ] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
+    -   [x] Commit: `Create Notification service struct skeleton.`
+    -   [x] Commit: `Implement subscribe function in Notification service.`
+    -   [x] Commit: `Implement subscribe function in Notification controller.`
+    -   [x] Commit: `Implement unsubscribe function in Notification service.`
+    -   [x] Commit: `Implement unsubscribe function in Notification controller.`
+    -   [x] Commit: `Implement receive_notification function in Notification service.`
+    -   [x] Commit: `Implement receive function in Notification controller.`
+    -   [x] Commit: `Implement list_messages function in Notification service.`
+    -   [x] Commit: `Implement list function in Notification controller.`
+    -   [x] Write answers of your learning module's "Reflection Subscriber-2" questions in this README.
 
 ## Your Reflections
 This is the place for you to write reflections:
@@ -91,3 +91,12 @@ This is the place for you to write reflections:
 2.In this tutorial, we used `lazy_static` external library to define `Vec` and `DashMap` as a `“static”` variable. Compared to Java where we can mutate the content of a `static` variable via a `static` function, why did not Rust allow us to do so?
 + Unlike Java, Rust doesn't allow direct mutation of static variables to prioritize safety and memory integrity. This prevents potential issues like data races and memory corruption in concurrent scenarios. Instead, Rust encourages the use of synchronization primitives like Mutex or RwLock for managing shared mutable state safely.
 #### Reflection Subscriber-2
+1.Have you explored things outside of the steps in the tutorial, for example: `src/lib.rs`? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
++ Outside of the tutorial I have examined `src/lib.rs`. Usually it serves as a central repository for defining essential elements required throughout the application. For instance, it contains crucial definitions like setting Error as the default error type for Result, simplifying error management. Additionally, structures like ErrorResponse are defined to handle error responses efficiently. This organized and centralized approach enhances accessibility and facilitates the utilization of common information across the application.
+
+
+2.Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?
++ Regarding the Observer pattern's integration with the notification system, it significantly simplifies the process of adding more subscribers. The pattern's decoupling nature ensures that adding new subscribers or even introducing new types of subjects does not require modifications to existing code. Each subscriber can be easily plugged into the system without impacting other components. However, when it comes to spawning multiple instances of the Main app, the ease of adding to the system largely depends on its design. While the Observer pattern facilitates scalability and flexibility, ensuring that each instance operates independently without sharing notifications, the ease of integration ultimately depends on the architecture and design decisions made for the Main app.
+
+3.Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).
++ As for utilizing Postman for testing and documentation, it proves immensely beneficial for API management tasks. The tool's capabilities in testing and documenting APIs streamline the process of ensuring their reliability and usability. With its user-friendly interface, Postman facilitates the creation and execution of tests, allowing developers to validate endpoints and responses with ease. Postman's versatility makes it an invaluable asset for developers, whether they are working on ongoing projects or planning for future ones, as it provides efficient solutions for API management needs.
